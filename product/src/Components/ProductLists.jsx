@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import ProudctCard from "./ProudctCard";
 import Seach from "./Seach";
 
-export default () => {
+export default ({loading,setLoading}) => {
     const [ products , setProducts ] = useState([]);
     const [query, setQuery ] = useState({
         category: "",
@@ -30,7 +30,7 @@ export default () => {
     }
 
     
-    return  <>
+    return <>
     <Seach query={query}  handleChange={handleChange} handleSubmit={handleSubmit}/>
 <section className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
   {products.map((product, index) => <ProudctCard index={index} product={product}/>)}

@@ -42,9 +42,14 @@ module.exports = (_, argv) => ({
   plugins: [
     new ModuleFederationPlugin({
       name: "product",
-      filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {},
+      filename: "product-app.js",
+      remotes: {
+
+      },
+      exposes: {
+        "./ProductApp": "./src/App.jsx",
+        "./ProductCard": "./src/Components/ProudctCard.jsx"
+      },
       shared: {
         ...deps,
         react: {
@@ -54,6 +59,10 @@ module.exports = (_, argv) => ({
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
+        },
+        "react-router-dom": {
+          singleton: true,
+          requiredVersion: deps["react-router-dom"],
         },
       },
     }),

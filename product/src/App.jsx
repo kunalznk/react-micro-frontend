@@ -1,26 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {  Route, Routes } from "react-router-dom";
 
 import "./index.scss";
 import ProductLists from "./Components/ProductLists";
 import ProductPage from "./Components/ProductPage";
-import Header from "./Components/Header";
 
-const App = () => (
-  <>
-  <Header />
-  <Routes>
+
+const App = () => {
+   return <div className="border-4  border-red-700">
+   <Routes>
    <Route path="/" element={<ProductLists />}/> 
-   <Route path="/:productId" element={<ProductPage />}/> 
- </Routes>
- </>
-);
+   <Route path=":productId" element={<ProductPage />}/> 
+     </Routes>
+   </div>
+ 
+};
 
-const root = document.getElementById("app");
-
-ReactDOM.render(
-  <BrowserRouter basename="/products">
-  <App />
-  </BrowserRouter>
-  ,root);
+  export default App;

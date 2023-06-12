@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Breadcrumbs from "./Breadcrumbs"
 import { useEffect, useState } from "react";
 import  axios from 'axios';
+// import Loader from "./Loader";
 
-export default () => {
+export default ({loading,setLoading}) => {
 
     const { productId } = useParams(); 
     const [ product , setProduct ] = useState({});
@@ -15,9 +16,10 @@ export default () => {
     }, [product])
 
     async  function fetechProducts () {
+      // setLoading(true);
         const { data } = await  axios.get("https://fakestoreapi.com/products/"+productId)
-        console.log(data);  
         setProduct(data);
+        // setLoading(false)
     }
     return <div className="antialiased">
     <div className="py-6">
@@ -76,9 +78,11 @@ export default () => {
     
               </div>
     
-              <button type="button" className="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
+                <Link to={`/orders/${productId}/checkout`} state={{ product }}>
+                <button type="button" className="h-14 px-6 py-2 font-semibold rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white">
                 Buy Now
               </button>
+                </Link>
             </div>
           </div>
         </div>
