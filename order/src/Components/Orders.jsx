@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Loader from "./Loader";
+// import Loader from "./Loader";
 
 
 export default () => {

@@ -3,8 +3,8 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./index.scss";
-import Header from "./Components/Header";
-import Delivery from "./Components/Delivery";
+// import Header from "./Components/Header";
+// import Delivery from "./Components/Delivery";
 
 
 const App = () => {
